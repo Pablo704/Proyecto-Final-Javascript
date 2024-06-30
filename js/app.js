@@ -9,7 +9,6 @@ form.addEventListener("submit", function(event) {
     const transaction = document.querySelector(`input[name="stransaction"]:checked`);
     const result = document.getElementById("result").value.trim();
     const equity = document.getElementById("equity").value.trim();
-
     if (fecha === "" || monthYear === "" || comment === "" || ticket === "" || !transaction || result === "" || equity === "") {
         Swal.fire({
             icon: "error",
@@ -89,7 +88,6 @@ function insertRowInTransactionTable(transactionObj) {
     let newtransactionRow = transactionTableRef.insertRow(-1);
     newtransactionRow.setAttribute("data-transaction-id", transactionObj["transactionId"]);
     let newTypeCellRef = newtransactionRow.insertCell(0);
-
     newTypeCellRef.textContent = transactionObj.comment;
     newTypeCellRef = newtransactionRow.insertCell(1);
     newTypeCellRef.textContent = transactionObj.date;
@@ -148,65 +146,39 @@ function insertRowInTransactionTable(transactionObj) {
         });
     }); 
 }
-
 function actualizarH2DesdeLocalStorage() {
-    // Obtener el dato almacenado en localStorage
     let transactionObjArry = JSON.parse(localStorage.getItem("transactionData")) || [];
-    
-    // Calcular valores de equity según el porcentaje de result
     let valorPositivoEquity = transactionObjArry.reduce((total, transaction) => {
         return total + (parseFloat(transaction.result) > 0 ? (parseFloat(transaction.result) / 100) * parseFloat(transaction.equity) : 0);
     }, 0);
-    
     let valorNegativoEquity = transactionObjArry.reduce((total, transaction) => {
         return total + (parseFloat(transaction.result) < 0 ? (parseFloat(transaction.result) / 100) * parseFloat(transaction.equity) : 0);
     }, 0);
-    
-    // Calcular la diferencia entre valorPositivoEquity y valorNegativoEquity
     let diferenciaEquity = valorPositivoEquity - Math.abs(valorNegativoEquity);
-
-    // Actualizar los <h2> correspondientes para equity
     let h2Positivo = document.getElementById('h2Positivo');
     let h2Negativo = document.getElementById('h2Negativo');
     let h2DiferenciaEquity = document.getElementById('h2DiferenciaEquity');
-
     h2Positivo.textContent = `$ ${valorPositivoEquity.toFixed(2)}`;
     h2Negativo.textContent = `$ ${valorNegativoEquity.toFixed(2)}`;
-    
-    // Mostrar la diferencia en un nuevo <h2>
     h2DiferenciaEquity.textContent = `$ ${diferenciaEquity.toFixed(2)}`;
-
-    // Calcular porcentajes basados en equity
     let totalEquity = valorPositivoEquity + Math.abs(valorNegativoEquity);
     let porcentajePositivo = (valorPositivoEquity / totalEquity) * 100;
     let porcentajeNegativo = (Math.abs(valorNegativoEquity) / totalEquity) * 100; 
-    
-    // Actualizar los <h2> correspondientes para porcentajes de equity
     let Ganancia = document.getElementById('ganancia');
     let Perdida = document.getElementById('perdida');
-    
     Ganancia.textContent = `Profit: ${porcentajePositivo.toFixed(2)}%`;
     Perdida.textContent = `Deficit: ${porcentajeNegativo.toFixed(2)}%`;
-
-    // Calcular porcentajes basados en result
     let porcentajePositivoResult = transactionObjArry.reduce((total, transaction) => {
         return total + (parseFloat(transaction.result) > 0 ? parseFloat(transaction.result) : 0);
     }, 0);
-    
     let porcentajeNegativoResult = transactionObjArry.reduce((total, transaction) => {
         return total + (parseFloat(transaction.result) < 0 ? parseFloat(transaction.result) : 0);
     }, 0);
-
-    // Actualizar los <h2> correspondientes para porcentajes de result
     let PorcentajePositivoResult = document.getElementById('PorcentajePositivoResult');
     let PorcentajeNegativoResult = document.getElementById('PorcentajeNegativoResult');
-    
     PorcentajePositivoResult.textContent = `Profit: ${porcentajePositivoResult.toFixed(2)}%`;
     PorcentajeNegativoResult.textContent = `Deficit: ${porcentajeNegativoResult.toFixed(2)}%`;
 }
-
-
-
 function deleteTransactionObj(transactionId){
     let transactionObjArry = JSON.parse(localStorage.getItem("transactionData"));
     let transactionIndexInArray = transactionObjArry.findIndex(element => element.transactionId === transactionId);
