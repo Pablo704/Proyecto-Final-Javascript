@@ -32,7 +32,7 @@ form.addEventListener("submit", function(event) {
             text: "Por favor, ingrese un Mes-Año válido (Ej: 62024)."
         });
       return;
-    }/*
+    }
     if (!/^\d+$/.test(equity)) {
         Swal.fire({
             icon: "error",
@@ -40,7 +40,7 @@ form.addEventListener("submit", function(event) {
             text: "Por favor, ingrese solo números para 'Equity'."
         });
         return;
-    }*/
+    }
     let transactionObj = convertFormDataToTransactionObject(transactionFormData);
     saveTransactionObj(transactionObj);
     insertRowInTransactionTable(transactionObj);
