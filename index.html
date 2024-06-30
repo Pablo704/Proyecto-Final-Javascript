@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro de trading</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+                <h1>Libro de trading</h1>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+      <section class="balance">
+        <div>
+          <p>Ganancia</p>
+          <h2 id="h2Positivo"></h2>
+          <p id="ganancia"></p>
+        </div>
+      </section>
+      <section class="balance">
+        <div>
+          <p id="PorcentajePositivoResult"></p>
+          <h2 id="h2DiferenciaEquity"></h2>
+          <p id="PorcentajeNegativoResult"></p>
+        </div>
+      </section>
+      <section class="balance">
+        <div>
+          <p>Perdida</p>
+          <h2 id="h2Negativo"></h2>
+          <p id="perdida"></p>
+        </div>
+      </section>
+      <section class="form-section">
+          <iframe id="coin360" src="https://coin360.com/widget/map?utm_source=embed_map" frameborder="0" title="Coin360.com: Cryptocurrency Market State" width="600" height="500"></iframe>
+          <input type="text" id="coin-input1" placeholder="Ingrese moneda base (ej. USD)" />
+          <input type="text" id="coin-input2" placeholder="Ingrese moneda de destino (ej. EUR)" />
+          <button id="check-price-button">Check Price</button>
+          <p id="price-display">El precio se mostrará aquí.</p>
+      </section>
+        <section class="form-section">
+            <form id="transactionForm" class="form" name="transactionForm">
+              <div class="form-group">
+                <label for="fecha">Fecha</label>
+                <input id="fecha" name="date" type="text" placeholder="Ingrese la fecha (Ej: 4)">
+              </div>
+              <div class="form-group">
+                <label for="monthyear">Mes-Año</label>
+                <input id="monthyear" name="monthyear" type="text" placeholder="Ingrese mes-año (Ej: 62024)">
+              </div>
+              <div class="form-group">
+                <label for="comment">Comentario</label>
+                <input id="comment" name="comment" type="text" placeholder="Ingrese la Comentario">
+              </div>
+              <div class="form-group">
+                <label for="ticket">Ticket</label>
+                <input id="ticket" name="ticket" type="text" placeholder="Ingrese el ticket (Ej: USDEUR)">
+              </div>
+              <div class="form-group radio-group">
+                <label>Transacción</label>
+                <div class="radio-options">
+                  <label>
+                    Buy<input type="radio" name="stransaction" value="Buy">
+                </label>
+                  <label>
+                    Sell
+                    <input type="radio" name="stransaction" value="Sell">
+                </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="result">Resultado ind/opt</label>
+                <input id="result" name="result" type="text" placeholder="Ingrese el resultado en procentaje (Ej: 2%)">
+              </div>
+              <div class="form-group">
+                <label for="equity">Equity-U$D</label>
+                <input id="equity" name="equity" type="text" placeholder="Ingrese el equity (Ej: $1000)">
+              </div>
+                <div>
+                    <button class="save-button">Guardar</button>
+                </div>
+            </div>
+        </section>
+        <section class="tabla">
+                <table id="transactiontable">
+                    <tr>
+                      <th>Comentario</th>
+                      <th>Fecha</th>
+                      <th>Mes-Año</th>
+                      <th>Ticket</th>
+                      <th>Transacción</th>
+                      <th>Resultado ind/opt</th>
+                      <th>Equity-U$D</th>
+                      <th class="Eliminar">Eliminar</th>
+                    </tr>
+                </table>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

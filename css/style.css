@@ -1,0 +1,228 @@
+.roboto-black-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.roboto-black {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.roboto-bold-italic {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+/* Estilos generales */
+body {
+  margin: 0;
+  padding: 0;
+  background: rgb(44, 62, 80);
+  background: linear-gradient(145deg, rgba(44, 62, 80, 1) 14%, rgba(3, 4, 5, 1) 85%);
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #29303A;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 0 10px 10px;
+  max-width: 100%; /* Ancho máximo */
+  margin: 0 auto; /* Centrado horizontal */
+}
+
+/* Main */
+main {
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0.5rem;
+  margin: 20px;
+  max-height: 100%;
+  max-width: 95%; /* Ancho máximo */
+  margin: 0 auto; /* Centrado horizontal */
+}
+
+/* Balance */
+.balance {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Elementos del balance */
+.balance div {
+  display: block;
+  text-align: start;
+  justify-content: start;
+  border: solid 2px #ffff;
+  background-color: #ffff;
+  border-radius: 20px;
+  padding-left: 20px;
+  margin: 20px 0;
+}
+
+/* Formulario */
+.form-section {
+  background-color: #29303a;
+  border-radius: 15px;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-bottom: 40px; 
+}
+
+.form {
+  max-width: 100%;
+}
+
+/* Grupo de formulario */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* Etiqueta de grupo de formulario */
+.form-group label {
+  color: white;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* Grupo de radio */
+.form-group.radio-group label {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.form-group.radio-group .radio-options {
+  display: inline-block;
+}
+
+.form-group.radio-group input[type="radio"] {
+  margin-right: 0.25rem;
+}
+
+/* Input, radio y botón */
+input[type="text"],
+input[type="radio"],
+button {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+.save-button {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+.save-button:hover:hover {
+  background-color: #45a049;
+}
+
+button:focus,
+input:focus {
+  outline: none;
+}
+
+/* Tabla */
+tbody {
+  text-align: center;
+  padding: 1rem;
+  width: 90%;
+  max-width: 100%; /* Ancho máximo */
+  margin: 0 auto; /* Centrado horizontal */
+}
+
+/* Contenedor de la tabla */
+.tabla {
+  border-radius: 10px;
+  background-color: #29303a;
+  padding: 1rem;
+  max-width: 95%; /* Ancho máximo */
+  margin-bottom: 40px;
+}
+
+/* Fila de la tabla */
+tr {
+  background-color: #ffff;
+}
+
+/* Celda de la tabla */
+th,
+td {
+  flex: 1 1 0%;
+  height: 1.5rem;
+  border-radius: 0.25rem;
+  border: solid #ffffff 1px;
+  background-color: #ffffff;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  outline: none;
+  transition: box-shadow 0.3s, border-color 0.3s;
+  width: 95%;
+}
+/* Botón en la celda de la tabla */
+td button {
+  padding: 3px;
+  background-color: #ff0000d8;
+  color: white;
+  cursor: pointer;
+}
+
+td button:hover {
+  background-color: #ff0000;
+}
+.tablaTradesEjc {
+  border-radius: 10px;
+  background-color: #29303a;
+  padding: 4px;
+  max-width: 100%; 
+  margin: 0 auto; 
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 1440px) {
+  main{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 0.5rem;
+  }
+  .form-section{
+    margin: 0 auto;
+  }
+  #coin360{
+    width: 100%;
+  }
+  .tabla{
+    margin: 0 auto;
+  }
+  .balance {
+    justify-content: space-evenly;
+    margin: 20px;
+}
+  .balance div{
+
+    margin: 10px;
+    max-width: 94%;
+
+  }
+}
